@@ -8,7 +8,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <NameOfLastUsedPublishProfile>E:\Usuarios\Notebook\Documentos\Curso C# Nivel 3\TPFinalNivel3_MINA\PresentacionTPN3\Properties\PublishProfiles\FolderProfile3.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

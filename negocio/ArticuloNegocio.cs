@@ -98,48 +98,42 @@ namespace negocio
         public List<Articulos> listar(string id = "")
         {
             List<Articulos> lista = new List<Articulos>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            AccesoDatos datos = new AccesoDatos();            ;
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_WEB_DB; integrated security=true";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select Codigo, Nombre, A.Descripcion, Precio, ImagenUrl, A.Id, M.Descripcion Marca, C.Descripcion Categoria, A.IdMarca, A.IdCategoria from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca AND C.Id = A.IdCategoria ";
+                
+                string consulta = "select Codigo, Nombre, A.Descripcion, Precio, ImagenUrl, A.Id, M.Descripcion Marca, C.Descripcion Categoria, A.IdMarca, A.IdCategoria from ARTICULOS A, MARCAS M, CATEGORIAS C where M.Id = A.IdMarca AND C.Id = A.IdCategoria ";
                 if (id != "")
                 {
-                    comando.CommandText += " and A.Id = " + id;
+                    consulta += " and A.Id = " + id;
                 }
-                    
 
-                comando.Connection = conexion;
 
-                conexion.Open();
-                lector = comando.ExecuteReader();
-
-                while (lector.Read())
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
                 {
                     Articulos aux = new Articulos();
 
-                    aux.Id = (int)lector["Id"];
-                    aux.Codigo = (string)lector["Codigo"];
-                    aux.Nombre = (string)lector["Nombre"];
-                    aux.Descripcion = (string)lector["Descripcion"];
-                    aux.Precio = (decimal)lector["Precio"];
-                    if (!(lector["ImagenUrl"] is DBNull))
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
                     {
-                        aux.UrlImagen = (string)lector["ImagenUrl"];
+                        aux.UrlImagen = (string)datos.Lector["ImagenUrl"];
                     }                    
                     aux.Marca = new Marcas();
-                    aux.Marca.Id = (int)lector["IdMarca"];
-                    aux.Marca.Descripcion = (string)lector["Marca"];
+                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.Categoria = new Categorias();
-                    aux.Categoria.Id = (int)lector["IdCategoria"];
-                    aux.Categoria.Descripcion = (string)lector["Categoria"];
+                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
 
                     lista.Add(aux);
                 }
-                conexion.Close();
+                datos.cerrarConexion();
                 return lista;
             }
             catch (Exception ex)

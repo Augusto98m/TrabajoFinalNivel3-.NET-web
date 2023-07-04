@@ -1,0 +1,6 @@
+E:\Usuarios\Notebook\Documentos\Curso C# Nivel 3\TPFinalNivel3_MINA\dominio\bin\Release\dominio.dll
+E:\Usuarios\Notebook\Documentos\Curso C# Nivel 3\TPFinalNivel3_MINA\dominio\bin\Release\dominio.pdb
+E:\Usuarios\Notebook\Documentos\Curso C# Nivel 3\TPFinalNivel3_MINA\dominio\obj\Release\dominio.csproj.AssemblyReference.cache
+E:\Usuarios\Notebook\Documentos\Curso C# Nivel 3\TPFinalNivel3_MINA\dominio\obj\Release\dominio.csproj.CoreCompileInputs.cache
+E:\Usuarios\Notebook\Documentos\Curso C# Nivel 3\TPFinalNivel3_MINA\dominio\obj\Release\dominio.dll
+E:\Usuarios\Notebook\Documentos\Curso C# Nivel 3\TPFinalNivel3_MINA\dominio\obj\Release\dominio.pdb
