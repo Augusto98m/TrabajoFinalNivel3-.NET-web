@@ -7,6 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using dominio;
 using Services;
+using System.Web.Services.Description;
+using System.Windows;
 
 namespace PresentacionTPN3
 {
@@ -19,6 +21,7 @@ namespace PresentacionTPN3
 
         protected void btnCrearPerfil_Click(object sender, EventArgs e)
         {
+            AccesoDatos datos = new AccesoDatos();
             try
             {
                 Page.Validate();
@@ -28,16 +31,36 @@ namespace PresentacionTPN3
                 Usuario user = new Usuario();
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 EmailService emailService = new EmailService();
+                
+
+                string consultar = "select email from USERS where email = '" + txtEmail.Text + "'";
+                string consulta = "";
+                datos.setearConsulta(consultar);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    consulta = (string)datos.Lector["email"];
+                }
+                
 
                 user.Email = txtEmail.Text;
-                user.Password = txtPass.Text;
-                user.Id = negocio.RegistrarNuevo(user);
-                Session.Add("Usuario", user);
+                user.Password = txtPass.Text;                
 
-                emailService.armarCorreo(user.Email, "Bienvenida SMART!");
-                emailService.enviarEmail();
+                if (consulta == user.Email)
+                {
+                    Response.Write("<script>alert('El email ya se encuentra registrado ⚠️ ')</script>");                    
+                }
+                else
+                {
+                    user.Id = negocio.RegistrarNuevo(user);
+                    Session.Add("Usuario", user);
 
-                Response.Redirect("MiPerfil.aspx", false);
+                    emailService.armarCorreo(user.Email, "Bienvenida SMART!");
+                    emailService.enviarEmail();
+
+                    Response.Redirect("MiPerfil.aspx", false);
+                }
+                
 
             }
             catch (Exception ex)
@@ -47,7 +70,7 @@ namespace PresentacionTPN3
             }
             finally
             {
-                //Datos.CerrarConexion();
+                datos.cerrarConexion();
             }
         }
     }

@@ -59,7 +59,7 @@ namespace PresentacionTPN3
                 user.Apellido = txtApellido.Text;
 
                 negocio.actualizar(user);
-                Response.Redirect("Inicio.aspx", false);
+                Response.Redirect("Default.aspx", false);
 
                 Image imagen = (Image)Master.FindControl("imgAvatar");
                 imagen.ImageUrl = "~/ImagenesPerfil/" + user.ImagenPerfil;

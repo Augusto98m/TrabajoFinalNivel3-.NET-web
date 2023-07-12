@@ -68,20 +68,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bodyBack.png" />
+    <Content Include="Default.aspx" />
     <Content Include="DetalleProducto.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="Favoritos.aspx" />
+    <Content Include="fondoCard.png" />
     <Content Include="FormularioArtículo.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Inicio.aspx" />
     <Content Include="ListadoProductos.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="Nosotros.aspx" />
     <Content Include="NuevoRegistro.aspx" />
     <Content Include="Web.config" />
+    <Content Include="wpp.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetalleProducto.aspx.cs">
       <DependentUpon>DetalleProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -112,13 +122,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Inicio.aspx.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inicio.aspx.designer.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListadoProductos.aspx.cs">
       <DependentUpon>ListadoProductos.aspx</DependentUpon>

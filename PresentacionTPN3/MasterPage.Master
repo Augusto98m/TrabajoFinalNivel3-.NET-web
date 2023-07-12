@@ -10,7 +10,7 @@
     </asp:ContentPlaceHolder>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
-<body>
+<body class="body">
     <form id="form1" runat="server">
         <div>            
             <style>
@@ -24,33 +24,40 @@
                         background-color:#17c40a;
                         color:black;
                 }
+                .a{
+                    color:white;
+                    transition:0.4s;
+                }
+                .a:hover{
+                    color:black;
+                }                
             </style>
-            <nav class="navbar navbar-expand-lg" style="background-color:#7d99a1">
+            <nav class="navbar navbar-expand-lg" role="navigation" style="background-color:#5e5dee">
               <div class="container-fluid">
-                <a class="navbar-brand" href="Inicio.aspx"><img src="Logo/LogoWEB-transformed.png" style="height:40px" /></a>
+                <a class="navbar-brand" href="Default.aspx"><img src="Logo/LogoWEB-transformed.png" style="height:40px" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link" href="Inicio.aspx" style="font-size:20px">Inicio</a>
+                      <a class="nav-link a" href="Default.aspx" style="font-size:20px;font-weight:600">Inicio</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="Nosotros.aspx" style="font-size:20px">Nosotros</a>
+                      <a class="nav-link a" href="Nosotros.aspx" style="font-size:20px;font-weight:600">Nosotros</a>
                     </li>  
                   <%if (Session["Usuario"] != null)
                       {  %>
                     <li class="nav-item">
-                      <a class="nav-link" href="Favoritos.aspx" style="font-size:20px">Favoritos</a>
+                      <a class="nav-link a" href="Favoritos.aspx" style="font-size:20px;font-weight:600">Favoritos</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="MiPerfil.aspx" style="font-size:20px">Mi Perfil</a>
+                      <a class="nav-link a" href="MiPerfil.aspx" style="font-size:20px;font-weight:600">Mi Perfil</a>
                     </li> 
                   <%} %>
                   <%if (Session["Usuario"] != null && Services.Seguridad.esAdmin(Session["Usuario"])) {  %>
                     <li class="nav-item">
-                      <a class="nav-link" href="ListadoProductos.aspx" style="font-size:20px">Listado De Productos</a>
+                      <a class="nav-link a" href="ListadoProductos.aspx" style="font-size:20px;font-weight:600">Listado De Productos</a>
                     </li>
                  <%} %>
                   </ul>                  
@@ -85,7 +92,7 @@
             </div>            
             <br />
             <br />
-         <footer style="background-color:lightblue;">
+         <footer style="background-color:#5e5dee;">
             <div style="text-align:center;">
                  <h4 style="line-height:50px;">© - <h10>Derechos reservados por Augusto Mina</h10></h4>                                               
             </div>

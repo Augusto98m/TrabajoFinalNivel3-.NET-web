@@ -8,14 +8,14 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
-    <NameOfLastUsedPublishProfile>E:\Usuarios\Notebook\Documentos\Curso C# Nivel 3\TPFinalNivel3_MINA\PresentacionTPN3\Properties\PublishProfiles\FolderProfile3.pubxml</NameOfLastUsedPublishProfile>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <NameOfLastUsedPublishProfile>E:\Usuarios\Notebook\Documentos\Curso C# Nivel 3\TPFinalNivel3_MINA\PresentacionTPN3\Properties\PublishProfiles\FolderProfile7.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <StartPageUrl>Inicio.aspx</StartPageUrl>
+          <StartPageUrl>Default.aspx</StartPageUrl>
           <StartAction>SpecificPage</StartAction>
           <AspNetDebugging>True</AspNetDebugging>
           <SilverlightDebugging>False</SilverlightDebugging>

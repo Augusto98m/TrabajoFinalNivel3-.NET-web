@@ -14,7 +14,7 @@ namespace PresentacionTPN3
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if (!(Page is Inicio || Page is Nosotros || Page is Login || Page is NuevoRegistro || Page is Error || Page is DetalleProducto))
+            if (!(Page is Default || Page is Nosotros || Page is Login || Page is NuevoRegistro || Page is Error || Page is DetalleProducto))
             {
                 if (!Seguridad.sesionActiva(Session["Usuario"]))
                     Response.Redirect("Login.aspx", false);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using dominio;
 
 namespace negocio
@@ -31,6 +32,7 @@ namespace negocio
 				datos.cerrarConexion();
 			}
 		}
+		
         public bool loguear(Usuario user)
         {
             AccesoDatos datos = new AccesoDatos();

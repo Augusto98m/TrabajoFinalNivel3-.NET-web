@@ -32,7 +32,8 @@ namespace PresentacionTPN3
 
                 if (Validacion.validaVacio(txtEmail) || Validacion.validaVacio(txtPass))
                 {
-                    MessageBox.Show("Completa todos los campos", "Ingreso Inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    Response.Write("<script>alert('Complete todos los campos ‼️  ')</script>");
+                    //MessageBox.Show("Completa todos los campos", "Ingreso Inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 else
                 {
@@ -45,7 +46,8 @@ namespace PresentacionTPN3
                     }
                     else
                     {
-                        MessageBox.Show("Email o Password incorrectas", "Ingreso Inválido", MessageBoxButton.OK, MessageBoxImage.Error);
+                        Response.Write("<script>alert('Email o Contraseña incorrectas ❌ ')</script>");
+                        //MessageBox.Show("Email o Password incorrectas", "Ingreso Inválido", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                                 

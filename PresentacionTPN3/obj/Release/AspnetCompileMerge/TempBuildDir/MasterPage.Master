@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="PresentacionTPN3.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">        
+    </asp:ContentPlaceHolder>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>            
+            <style>
+                .bton{
+                        background-color:#17f306;
+                        color:black;
+                        transition:0.2s;
+                        font-weight:600;
+                }
+                .bton:hover{
+                        background-color:#17c40a;
+                        color:black;
+                }
+            </style>
+            <nav class="navbar navbar-expand-lg" style="background-color:#7d99a1">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="Inicio.aspx"><img src="Logo/LogoWEB-transformed.png" style="height:40px" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="Inicio.aspx" style="font-size:20px">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="Nosotros.aspx" style="font-size:20px">Nosotros</a>
+                    </li>  
+                  <%if (Session["Usuario"] != null)
+                      {  %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="Favoritos.aspx" style="font-size:20px">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="MiPerfil.aspx" style="font-size:20px">Mi Perfil</a>
+                    </li> 
+                  <%} %>
+                  <%if (Session["Usuario"] != null && Services.Seguridad.esAdmin(Session["Usuario"])) {  %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="ListadoProductos.aspx" style="font-size:20px">Listado De Productos</a>
+                    </li>
+                 <%} %>
+                  </ul>                  
+                </div>
+                  <%if (Session["Usuario"] == null)
+                      { %>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <div class="col-lg-6">
+                          <a href="Login.aspx" runat="server" class="btn btn-dark">Ingresá</a>
+                      </div>
+                      <div class="col-md-7">
+                          <a href="NuevoRegistro.aspx" runat="server" class="btn bton">Registrate</a>
+                      </div>                                                                                                     
+                  </div>
+                  <%}
+                      else
+                      { %>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <div class="col-lg">
+                          <asp:Button Text="Sign Out" CssClass="btn btn-danger me-2" runat="server" ID="btnCerrarSesion" OnClick="btnCerrarSesion_Click" />
+                      </div>                                                                                                     
+                  </div>
+                  <asp:Image ID="imgAvatar" style="height:40px; width:40px; border-radius:50%;" runat="server" />
+                  <%} %>
+                  
+              </div>
+            </nav>
+            <div class="container">
+                <hr />
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>            
+            <br />
+            <br />
+         <footer style="background-color:lightblue;">
+            <div style="text-align:center;">
+                 <h4 style="line-height:50px;">© - <h10>Derechos reservados por Augusto Mina</h10></h4>                                               
+            </div>
+         </footer>               
+        </div>
+    </form>
+</body>
+</html>
