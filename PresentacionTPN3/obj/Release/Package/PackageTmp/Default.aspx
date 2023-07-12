@@ -14,7 +14,7 @@
         .foto{          
             min-height:235px;
             max-height:235px;
-            width:238px;
+            max-width:238px;
         }    
         .card{
             transition: all 0.4s;            
@@ -50,6 +50,9 @@
             background-image:url("wpp.png");
         }
     </style>
+    <div class="container">
+
+    
   <asp:UpdatePanel runat="server">
    <ContentTemplate>
     <div class="container iniciado">   
@@ -77,15 +80,15 @@
         <asp:Repeater runat="server" ID="repRepetidor">
             <ItemTemplate>
                 <div class="col">
-                    <div class="card" style="height:400px;width:280px;background-color:#d7dfe4;align-items:center">                        
+                    <div class="card" style="max-height:400px;max-width:280px;background-color:#d7dfe4;align-items:center">                        
                        <img src="<%#Eval("UrlImagen") %>" class="card-img-top foto" id="imgProduc">                        
-                        <div class="card-body" style="height:184px;width:238px">
+                        <div class="card-body" style="max-height:184px;max-width:238px">
                             <h5 class="card-title"><%#Eval("Nombre")%></h5>
                             <h7 class="card-title"><%#Eval("Marca")%></h7>
                             <p class="card-text" style="font-size:14px">$ <%#Eval("Precio") %></p>
                             <div class="row" style="flex-wrap:nowrap">                                
-                                    <a style="width:100px;color:black" href="DetalleProducto.aspx?id=<%#Eval("Id") %>">Ver detalle</a>
-                                    <a style="width:110px"></a>                                                                              
+                                    <a style="max-width:100px;color:black" href="DetalleProducto.aspx?id=<%#Eval("Id") %>">Ver detalle</a>
+                                    <a style="max-width:110px"></a>                                                                              
                             </div>                                                        
                         </div>
                     </div>
@@ -95,4 +98,5 @@
     </div>
    </ContentTemplate>
   </asp:UpdatePanel>
+ </div>
 </asp:Content>
